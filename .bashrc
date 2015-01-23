@@ -5,13 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+#history
 shopt -s histappend
 HISTCONTROL=ignoreboth  # don't log duplicate lines or lines starting with space
 HISTSIZE=65535
 HISTFILESIZE=102400
 
+#env
 #PS1='[\u@\h \W]\$ '
 PS1='\[\e[1;32m\]» \[\e[1;32m\]\u \[\e[1;30m\][at]\[\e[1;32m\] \H\[\e[1;30m\]╺─╸\[\e[1;30m\][\[\e[1;32m\]\w\[\e[1;30m\]]\[\e[0;32m\]\n\$ \[\e[0m\]'
+export EDITOR='vim'
+eval $(keychain --eval --agents ssh -Q --quiet)
 
 #colored man page
 man() {
