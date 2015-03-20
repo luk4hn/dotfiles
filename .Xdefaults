@@ -52,7 +52,7 @@ URxvt.keysym.F11: 			perl:fullscreen:switch
 ! URXVT COLORS
 !------------------------------------------------
 *background: 				#111111
-*foreground: 				#00FF00
+*foreground: 				#efefef
 !!black
 !*color0: 					#222222
 !*color8: 					#666666
