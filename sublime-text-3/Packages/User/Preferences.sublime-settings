@@ -1,0 +1,37 @@
+{
+	"auto_complete": true,
+	"color_scheme": "Packages/User/SublimeLinter/Tomorrow-Night-Bright (SL).tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"find_selected_text": true,
+	"fold_buttons": true,
+	"fade_fold_buttons": false,
+	"font_face": "Ubuntu Mono",
+	"font_options":
+	[
+		"subpixel_antialias",
+		"no_bold"
+	],
+	"font_size": 13.0,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 0,
+	"line_padding_top": 0,
+	"bold_folder_labels": true,
+	"scroll_past_end": false,
+	"show_minimap": true,
+	"tab_size": 4,
+	"theme": "Soda Dark 3.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"update_check": false,
+	"caret_style": "solid",
+	"caret_extra_width": 3,
+	"caret_extra_top": 2,
+	"caret_extra_bottom": 2,
+	"word_wrap": true,
+	"wrap_width": "Automatic"
+}
