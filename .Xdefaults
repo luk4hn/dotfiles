@@ -11,10 +11,12 @@ URxvt*allow_bold:   false
 
 ! URXVT ENABLE LINK SUPPORT
 !------------------------------------------------
-URxvt.perl-ext-common:      default,matcher,tabbedex,vtwheel,clipboard
+!URxvt.perl-ext-common:      default,matcher,tabbedex,vtwheel,clipboard
+URxvt.perl-ext-common:      default,matcher
 !tabbed
 URxvt.matcher.button:       1
-URxvt.perl-ext:             default,url-select
+!URxvt.perl-ext:             default,url-select
+URxvt.perl-ext:             default
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.url-select.launcher:  /usr/bin/google-chrome
 URxvt.url-select.underline: true
