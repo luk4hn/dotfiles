@@ -11,9 +11,15 @@ HISTCONTROL=ignoreboth  # don't log duplicate lines or lines starting with space
 HISTSIZE=65535
 HISTFILESIZE=102400
 
-#env
-#PS1='[\u@\h \W]\$ '
-PS1='\[\e[1;32m\]» \[\e[1;32m\]\u \[\e[1;30m\][at]\[\e[1;32m\] \H\[\e[1;30m\]╺─╸\[\e[1;30m\][\[\e[1;34m\]\w\[\e[1;30m\]]\n\$ \[\e[0m\]'
+#prompt
+function parse_git_branch { 
+    local b="$(git symbolic-ref HEAD 2>/dev/null)";
+    if [ -n "$b" ]; then
+        printf "(%s)" "${b##refs/heads/}";
+    fi
+}
+
+PS1="\[\e[1;32m\]» \[\e[1;32m\]\u \[\e[1;30m\][at]\[\e[1;32m\] \H\[\e[1;30m\]╺─╸\[\e[1;30m\][\[\e[1;34m\]\w\[\e[1;30m\]]  \n\$(parse_git_branch)\$ \[\e[0m\]"
 export EDITOR='vim'
 eval $(keychain --eval --agents ssh -Q --quiet)
 
