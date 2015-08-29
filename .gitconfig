@@ -1,0 +1,45 @@
+[user]
+	name = Huy Nguyen
+	email = xngqhy@gmail.com
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+
+[alias]
+    pu = push
+    pl = pull
+    ci = commit
+    di = diff --color-words
+    st = status -uno
+    stt = status
+    co = checkout
+    br = branch
+    lg = log -p
+    logf = log --follow
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = ls-files
+    mg = merge
+    cb = rev-parse --abbrev-ref HEAD
+    clog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color "branch"]
+    current = white
+    local = magenta
+    remote = cyan
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[push]
+	default = matching
