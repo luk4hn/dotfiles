@@ -1,5 +1,5 @@
 
-#URxvt*termName: screen-256color
+URxvt*termName: xterm-256color
 
 ! URXVT FONTS
 !------------------------------------------------
