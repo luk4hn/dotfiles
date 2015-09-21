@@ -1,81 +1,54 @@
+URxvt*termName:             xterm-256color
 
-URxvt*termName: xterm-256color
+!URXVT FONTS
+URxvt*font:                 xft:UbuntuMono-B:pixelsize=17
+URxvt*boldFont:             xft:UbuntuMono-B:pixelsize=16
+URxvt*letterSpace:          0
+URxvt*allow_bold:           false
 
-! URXVT FONTS
-!------------------------------------------------
-#URxvt*font:         xft:Inconsolata-Regular:pixelsize=14
-URxvt*font:         xft:UbuntuMono-B:pixelsize=17
-URxvt*boldFont:     xft:UbuntuMono-B:pixelsize=16
-URxvt*letterSpace:  0
-URxvt*allow_bold:   false
-
-! URXVT ENABLE LINK SUPPORT
-!------------------------------------------------
 !URxvt.perl-ext-common:      default,matcher,tabbedex,vtwheel,clipboard
-URxvt.perl-ext-common:      default,matcher
-!tabbed
-URxvt.matcher.button:       1
-!URxvt.perl-ext:             default,url-select
-URxvt.perl-ext:             default
-URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.url-select.launcher:  /usr/bin/google-chrome
-URxvt.url-select.underline: true
-!disable the fucking bell
+
+!disable the bell
 URxvt.insecure: 			false
 
-! URXVT COPY PASTE SHORTCUTS
-!------------------------------------------------
-URxvt.keysym.M-c: 			perl:clipboard:copy
-URxvt.keysym.M-v: 			perl:clipboard:pasteq
-
-! URXVT SCROLLBAR AND CURSOR STYLE
-!------------------------------------------------
+!URXVT SCROLLBAR AND CURSOR STYLE
 URxvt*saveLines: 			300000
-URxvt.scrollBar: 			false
-!URxvt*scrollstyle:			plain
+URxvt*scrollBar: 			false
+URxvt*scrollstyle:			plain
 URxvt*cursorBlink: 			false
-URxvt*cursorUnderline: 		false
-URxvt*cursorColor: 			#4e9a06
+URxvt*cursorUnderline: 		true
 
-! URXVT TABS
-!------------------------------------------------
-URxvt.tabbedex.autohide: 	yes
-URxvt.tabbedex.tabbar-fg: 	2
-URxvt.tabbedex.tabbar-bg: 	0
-URxvt.tabbedex.tab-fg:    	10
-URxvt.tabbedex.tab-bg:    	0
-URxvt.tabbedex.title: 		yes
-URxvt.tabbedex.new-button:  no
-
-! URXVT FULLSCREEN TOGGLE
-!------------------------------------------------
+!URXVT FULLSCREEN TOGGLE
 URxvt.keysym.F11: 			perl:fullscreen:switch
 
 ! URXVT COLORS
-!------------------------------------------------
-*background: 				#111111
-*foreground: 				#efefef
-!!black
-!*color0: 					#222222
-!*color8: 					#666666
-!!red
-!*color1: 					#E84F4F
-!*color9: 					#D23D3D
-!!green
-!*color2: 					#B7CE42
-!*color10: 					#BDE077
-!!yellow
-!*color3: 					#FEA63C
-!*color11: 					#FFE863
-!!blue
-!*color4: 					#66AABB
-!*color12: 					#AACCBB
-!!magenta
-!*color5: 					#B7416E
-!*color13: 					#E16A98
-!!cyan
-!*color6: 					#6D878D
-!*color14: 					#42717B
-!!white
-!*color7: 					#DDDDDD
-!*color15: 					#CCCCCC
+URxvt.depth:                32
+*background: 				[95]#0a0a0a
+*foreground: 				#dedede
+
+URxvt*colorUL:              #86a2b0
+! black
+URxvt*color0:               #2E3436
+URxvt*color8:               #555753
+! red
+URxvt*color1:               #CC0000
+URxvt*color9:               #EF2929
+! green
+URxvt*color2:               #4E9A06
+URxvt*color10:              #8AE234
+! yellow
+URxvt*color3:               #C4A000
+URxvt*color11:              #FCE94F
+! blue
+URxvt*color4:               #3465A4
+URxvt*color12:              #729FCF
+! magenta
+URxvt*color5:               #75507B
+URxvt*color13:              #AD7FA8
+! cyan
+URxvt*color6:               #06989A
+URxvt*color14:              #34E2E2
+! white
+URxvt*color7:               #D3D7CF
+URxvt*color15:              #EEEEEC
+
