@@ -20,8 +20,10 @@ function parse_git_branch {
 }
 
 PS1="\[\e[1;32m\]» \[\e[1;32m\]\u \[\e[1;30m\][at]\[\e[1;32m\] \H\[\e[1;30m\]╺─╸\[\e[1;30m\][\[\e[1;34m\]\w\[\e[1;30m\]]  \n\$(parse_git_branch)\$ \[\e[0m\]"
+
 export EDITOR='vim'
 eval $(keychain --eval --agents ssh -Q --quiet)
+unset SSH_ASKPASS
 
 #colored man page
 man() {
@@ -40,6 +42,4 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias grep='grep --color=auto'
 alias pacman='sudo pacman'
-alias win7='vboxmanage startvm "Win7"'
-alias jnc-sync='sudo cp /etc/hosts /etc/jnpr-nc-hosts.bak'
 alias mirror-stats='curl -s http://f.archlinuxvn.org/archlinux/status.json ; curl -s http://arm.f.archlinuxvn.org/status.json'
