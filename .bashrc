@@ -5,25 +5,50 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#history
+### history
 shopt -s histappend
 HISTCONTROL=ignoreboth  # don't log duplicate lines or lines starting with space
 HISTSIZE=65535
 HISTFILESIZE=102400
 
-#prompt
-function parse_git_branch { 
+### prompt
+_GRAY='\e[1;30m'
+_GREEN='\e[1;32m'
+_RED='\e[1;31m'
+_CYAN='\e[1;34m'
+_YELLOW='\e[1;33m'
+_TXTRST='\e[0m'
+
+_parse_git_branch() {
     local b="$(git symbolic-ref HEAD 2>/dev/null)";
     if [ -n "$b" ]; then
         printf "(%s)" "${b##refs/heads/}";
     fi
 }
 
-PS1="\[\e[1;32m\]» \[\e[1;32m\]\u \[\e[1;30m\][at]\[\e[1;32m\] \H\[\e[1;30m\]╺─╸\[\e[1;30m\][\[\e[1;34m\]\w\[\e[1;30m\]]  \n\$(parse_git_branch)\$ \[\e[0m\]"
+_prompt_ps1() {
+    local _cl_char="$_GRAY"
+    local _cl_user="$_GREEN"
+    local _cl_host="$_GREEN"
+    local _cl_pwd="$_CYAN"
 
-export EDITOR='vim'
+    [[ $(id -u) -eq 0 ]] && _cl_user="$_RED"
+
+    if [[ -n $SSH_CLIENT ]] || [[ -n $SSH_TTY ]] ; then
+        _cl_host="$_YELLOW"
+    fi
+
+    PS1="\[$_cl_char\]» \[$_cl_user\]\u \[$_cl_char\][at] \[$_cl_host\]\H \[$_cl_pwd\]\w \n\[$_cl_char\]\$(_parse_git_branch)\[$_GREEN\]\$ \[$_TXTRST\]"
+}
+
+_prompt_ps1
+
+### env
+shopt -s autocd
 eval $(keychain --eval --agents ssh -Q --quiet)
+export EDITOR='vim'
 unset SSH_ASKPASS
+export VAGRANT_HOME='/data/VMs/vagrant-home'
 
 #colored man page
 man() {
