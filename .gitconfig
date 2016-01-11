@@ -1,6 +1,6 @@
 [user]
 	name = Huy Nguyen
-	email = xngqhy@gmail.com
+	email = luk4hn@gmail.com
 
 [color]
     branch = auto
@@ -47,3 +47,7 @@
 	tool = meld
 [merge]
 	tool = meld
+[http]
+	#proxy = socks4://127.0.0.1:1080
+[https]
+	#proxy = socks4://127.0.0.1:1080
