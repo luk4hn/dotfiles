@@ -12,6 +12,7 @@ HISTSIZE=65535
 HISTFILESIZE=102400
 
 ### prompt
+_WHITE='\e[1;37m'
 _GRAY='\e[1;30m'
 _GREEN='\e[1;32m'
 _RED='\e[1;31m'
@@ -34,9 +35,11 @@ _prompt_ps1() {
 
     [[ $(id -u) -eq 0 ]] && _cl_user="$_RED"
 
-    if [[ -n $SSH_CLIENT ]] || [[ -n $SSH_TTY ]] ; then
-        _cl_host="$_YELLOW"
-    fi
+    case "$(uname -n)" in
+        *crescent*)     _cl_host="$_GREEN" ;;
+        *dev-*)         _cl_host="$_WHITE" ;;
+        *)              _cl_host="$_YELLOW" ;;
+    esac
 
     PS1="\[$_cl_char\]» \[$_cl_user\]\u \[$_cl_char\][at] \[$_cl_host\]\H \[$_cl_pwd\]\w \n\[$_cl_char\]\$(_parse_git_branch)\[$_GREEN\]\$ \[$_TXTRST\]"
 }
