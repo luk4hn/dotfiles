@@ -16,7 +16,7 @@
 		"subpixel_antialias",
 		"no_bold"
 	],
-	"font_size": 13.0,
+	"font_size": 15.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -25,9 +25,13 @@
 	],
 	"line_padding_bottom": 0,
 	"line_padding_top": 0,
+	"rulers":
+	[
+		80
+	],
 	"scroll_past_end": false,
 	"show_minimap": true,
-	"tab_size": 4,
+	"tab_size": 2,
 	"theme": "Soda Dark 3.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
