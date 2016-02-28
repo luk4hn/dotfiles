@@ -1,8 +1,8 @@
 URxvt*termName:             xterm-256color
 
 !URXVT FONTS
-URxvt*font:                 xft:UbuntuMono-B:pixelsize=17
-URxvt*boldFont:             xft:UbuntuMono-B:pixelsize=16
+URxvt*font:                 xft:UbuntuMono-B:pixelsize=20
+URxvt*boldFont:             xft:UbuntuMono-B:pixelsize=19
 URxvt*letterSpace:          0
 URxvt*allow_bold:           false
 
@@ -14,9 +14,13 @@ URxvt.insecure: 			false
 !URXVT SCROLLBAR AND CURSOR STYLE
 URxvt*saveLines: 			300000
 URxvt*scrollBar: 			false
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
 URxvt*scrollstyle:			plain
 URxvt*cursorBlink: 			false
-URxvt*cursorUnderline: 		true
+URxvt*cursorUnderline: 		false
+URxvt*cursorColor:          #00ff00
 
 !URXVT FULLSCREEN TOGGLE
 URxvt.keysym.F11: 			perl:fullscreen:switch
