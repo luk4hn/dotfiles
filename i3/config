@@ -34,6 +34,10 @@ set $WS10 "10: msg"
 
 # Assign windows to workspaces
 # Use xprop to get windows propertises
+# WM_CLASS(STRING) = "irssi", "URxvt"
+# The first part of the WM_CLASS is the instance ("irssi" in this example),
+# the second part is the class ("URxvt" in this example).
+
 #assign [class="^URxvt$"] "1:term"
 
 assign [class="^Subl3$"] $WS2
@@ -48,6 +52,12 @@ assign [class="^Thunderbird$"] $WS3
 assign [class="^Skype$"] $WS10
 assign [class="^Hexchat$"] $WS10
 assign [class="^Telegram$"] $WS10
+
+# workspace 9 is dedicated to floating window
+assign [class="^Scudcloud$"] 9
+assign [class="^KeePass2$"] 9
+for_window [class="^Scudcloud$"] floating enable
+for_window [class="^KeePass2$"] floating enable
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -229,15 +239,18 @@ bar {
 #exec --no-startup-id gnome-settings-daemon
 #exec --no-startup-id xcompmgr -n
 #exec --no-startup-id dunst #notification daemon
-#exec nitrogen --restore
+
 exec --no-startup-id /usr/local/bin/extendScreen
 exec --no-startup-id "i3-msg restart"
+exec --no-startup-id nitrogen --restore
+
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id dropboxd
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id clipit
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec_always sleep 5 && nagstamon
 
 #workspace 1: term
