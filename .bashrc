@@ -18,6 +18,7 @@ _GREEN='\e[1;32m'
 _RED='\e[1;31m'
 _CYAN='\e[1;34m'
 _YELLOW='\e[1;33m'
+_ORANGE='\e[38;5;130m'
 _TXTRST='\e[0m'
 
 _parse_git_branch() {
@@ -41,7 +42,7 @@ _prompt_ps1() {
         *)              _cl_host="$_YELLOW" ;;
     esac
 
-    PS1="\[$_cl_char\]» \[$_cl_user\]\u \[$_cl_char\][at] \[$_cl_host\]\H \[$_cl_pwd\]\w \n\[$_cl_char\]\$(_parse_git_branch)\[$_GREEN\]\$ \[$_TXTRST\]"
+    PS1="\[$_cl_char\]» \[$_cl_user\]\u \[$_cl_char\][at] \[$_cl_host\]\H \[$_cl_pwd\]\w \n\[$_ORANGE\]\$(_parse_git_branch)\[$_GREEN\]\$ \[$_TXTRST\]"
 }
 
 _prompt_ps1
@@ -65,9 +66,19 @@ man() {
     man "$@"
 }
 
+workon() {
+    local _path=$(readlink -e ~/work/${1}*)
+    if [[ -n $2 ]] ; then
+        cd ${_path}/${2}*
+    else
+        cd ${_path}
+    fi
+}
+
 #alias
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias grep='grep --color=auto'
 alias pacman='sudo pacman'
+alias wo=workon
 alias mirror-stats='curl -s http://f.archlinuxvn.org/archlinux/status.json ; curl -s http://arm.f.archlinuxvn.org/status.json'
