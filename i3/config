@@ -9,6 +9,10 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $dom Mod1
+
+# Alt
+#set $mod Mod1
 
 # General style
 workspace_layout tabbed
@@ -52,19 +56,19 @@ assign [class="^Thunderbird$"] $WS3
 assign [class="^Skype$"] $WS10
 assign [class="^Hexchat$"] $WS10
 assign [class="^Telegram$"] $WS10
+assign [class="^Franz$"] $WS10
 
 # workspace 9 is dedicated to floating window
-assign [class="^Scudcloud$"] 9
-assign [class="^KeePass2$"] 9
-for_window [class="^Scudcloud$"] floating enable
-for_window [class="^KeePass2$"] floating enable
+#assign [class="^Scudcloud$"] 9
+#assign [class="^KeePass2$"] 9
+#for_window [class="^Scudcloud$"] floating enable
+#for_window [class="^KeePass2$"] floating enable
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono Bold 8
-font pango: Ubuntu Mono 7
+font pango:Source Code Pro Semibold 7
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -77,7 +81,8 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -i'
+bindsym $mod+q exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+j focus left
@@ -154,10 +159,10 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace $WS10
 
 # move workspce to output
-bindsym $mod+Control+Left move workspace to output left
-bindsym $mod+Control+Right move workspace to output right
-bindsym $mod+Control+Up move workspace to output up
-bindsym $mod+Control+Down move workspace to output down
+bindsym $mod+$dom+Left move workspace to output left
+bindsym $mod+$dom+Right move workspace to output right
+bindsym $mod+$dom+Up move workspace to output up
+bindsym $mod+$dom+Down move workspace to output down
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -213,8 +218,9 @@ bindsym Ctrl+Mod1+l exec i3lock -e -c 000000
 # Shortcut
 bindsym $mod+Return exec /usr/bin/urxvt -e tmux
 bindsym $mod+Shift+Return exec /usr/bin/urxvt
-#bindsym Mod4+e exec mucommander
 bindsym Ctrl+Shift+e exec pcmanfm
+# print screen
+bindsym --release Print exec --no-startup-id gnome-screenshot -f ~/screenshot-$(date +%s).png -a
 #jump to urgent window
 bindsym $mod+x [urgent=latest] focus
 
@@ -242,14 +248,15 @@ bar {
 
 exec --no-startup-id /usr/local/bin/extendScreen
 exec --no-startup-id "i3-msg restart"
-exec --no-startup-id nitrogen --restore
 
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id dropboxd
+exec --no-startup-id blueman-applet
 exec --no-startup-id clipit
+exec --no-startup-id redshift-gtk
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec_always sleep 5 && nagstamon
 
@@ -261,6 +268,9 @@ exec --no-startup-id sleep 3 && i3-msg 'workspace 10: msg; append_layout ~/.i3/w
 exec sleep 5 && telegram
 exec sleep 5 && hexchat
 exec sleep 5 && skype
+exec sleep 5 && franz
+
+exec --no-startup-id nitrogen --restore
 
 #workspace 3: www
 #exec firefox
