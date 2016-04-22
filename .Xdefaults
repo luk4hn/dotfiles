@@ -1,12 +1,20 @@
 URxvt*termName:             xterm-256color
 
 !URXVT FONTS
-URxvt*font:                 xft:UbuntuMono-B:pixelsize=20
-URxvt*boldFont:             xft:UbuntuMono-B:pixelsize=19
+URxvt*font:                 xft:Source Code Pro:pixelsize=20
+URxvt*boldFont:             xft:Source Code Pro:pixelsize=20
+!URxvt*font:                 xft:Ubuntu Mono derivative Powerline:pixelsize=22
+!URxvt*boldFont:             xft:Ubuntu Mono derivative Powerline:pixelsize=22
 URxvt*letterSpace:          0
 URxvt*allow_bold:           false
 
 !URxvt.perl-ext-common:      default,matcher,tabbedex,vtwheel,clipboard
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
 
 !disable the bell
 URxvt.insecure: 			false
@@ -27,7 +35,8 @@ URxvt.keysym.F11: 			perl:fullscreen:switch
 
 ! URXVT COLORS
 URxvt.depth:                32
-*background: 				[95]#0a0a0a
+!*background: 				[95]#0a0a0a
+*background: 				[95]#1a1a1a
 *foreground: 				#dedede
 
 URxvt*colorUL:              #86a2b0
@@ -55,4 +64,3 @@ URxvt*color14:              #34E2E2
 ! white
 URxvt*color7:               #D3D7CF
 URxvt*color15:              #EEEEEC
-
