@@ -24,7 +24,7 @@ _TXTRST='\e[0m'
 _parse_git_branch() {
     local b="$(git symbolic-ref HEAD 2>/dev/null)";
     if [ -n "$b" ]; then
-        printf "(%s)" "${b##refs/heads/}";
+        printf " (%s) " "${b##refs/heads/}";
     fi
 }
 
@@ -73,6 +73,8 @@ workon() {
     else
         cd ${_path}
     fi
+    local _s=$(basename $(pwd))
+    tmux rename-window ${_s}
 }
 
 #alias
