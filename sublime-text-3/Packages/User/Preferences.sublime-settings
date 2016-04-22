@@ -10,13 +10,13 @@
 	"fade_fold_buttons": false,
 	"find_selected_text": true,
 	"fold_buttons": true,
-	"font_face": "Ubuntu Mono",
+	"font_face": "Ubuntu Mono derivative Powerline",
 	"font_options":
 	[
 		"subpixel_antialias",
 		"no_bold"
 	],
-	"font_size": 15.0,
+	"font_size": 16.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -25,6 +25,11 @@
 	],
 	"line_padding_bottom": 0,
 	"line_padding_top": 0,
+	"predawn_sidebar_arrows": true,
+	"predawn_sidebar_narrow": false,
+	"predawn_sidebar_small": true,
+	"predawn_tabs_active_underline": true,
+	"predawn_tabs_small": true,
 	"rulers":
 	[
 		80
@@ -32,7 +37,7 @@
 	"scroll_past_end": false,
 	"show_minimap": true,
 	"tab_size": 2,
-	"theme": "Soda Dark 3.sublime-theme",
+	"theme": "predawn-DEV.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"update_check": false,
