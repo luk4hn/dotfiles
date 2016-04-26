@@ -242,12 +242,11 @@ bar {
 }
 
 # autostart
-#exec --no-startup-id gnome-settings-daemon
-#exec --no-startup-id xcompmgr -n
-#exec --no-startup-id dunst #notification daemon
+# exec --no-startup-id gnome-settings-daemon
+# exec --no-startup-id xcompmgr -n
+# exec --no-startup-id dunst #notification daemon
 
-exec --no-startup-id /usr/local/bin/extendScreen
-exec --no-startup-id "i3-msg restart"
+exec --no-startup-id ( /usr/local/bin/extendScreen && i3-msg restart )
 
 exec --no-startup-id pulseaudio --start
 exec --no-startup-id ibus-daemon -drx
@@ -255,23 +254,19 @@ exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 exec --no-startup-id dropboxd
 exec --no-startup-id blueman-applet
-exec --no-startup-id clipit
-exec --no-startup-id redshift-gtk
-#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec_always sleep 5 && nagstamon
+# exec --no-startup-id redshift-gtk
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-#workspace 1: term
+# workspace 1: term
 exec --no-startup-id sleep 3 && i3-msg 'workspace 1: term; exec /usr/bin/urxvt -e tmux new -s rMBP'
 
-#workspace 10: msg
+# workspace 10: msg
 exec --no-startup-id sleep 3 && i3-msg 'workspace 10: msg; append_layout ~/.i3/workspace-msg.json'
-exec sleep 5 && telegram
-exec sleep 5 && hexchat
-exec sleep 5 && skype
-exec sleep 5 && franz
+exec sleep 3 && ( telegram & hexchat & skype & franz & nitrogen --restore )
 
-exec --no-startup-id nitrogen --restore
+# workspace 2: code
+exec subl3
 
-#workspace 3: www
-#exec firefox
-#exec chromium
+# workspace 3: www
+# exec firefox
+# exec chromium

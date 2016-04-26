@@ -3,141 +3,99 @@
     "percent": 0.5,
     "type": "con",
     "nodes": [
-    {
-        "border": "pixel",
-        "layout": "tabbed",
-        "percent": 0.5,
-        "type": "con",
-        "nodes": [
-            {
-            "border": "pixel",
-            "current_border_width": 2,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 1022,
-               "width": 1676,
-               "x": 2,
-               "y": 2
-            },
-            "name": "Telegram",
-               "percent": 1,
-            "swallows": [
-               {
-                "class": "^Telegram$",
-                "instance": "^Telegram$",
-                "title": "^Telegram$",
-                "transient_for": "^$"
-                }
-            ],
-            "type": "con"
-            }
-        ]
-    },
         {
             "border": "pixel",
             "floating": "auto_off",
-            "layout": "splitv",
+            "layout": "tabbed",
             "percent": 0.5,
             "type": "con",
             "nodes": [
-            {
-                "border": "pixel",
-                "floating": "auto_off",
-                "layout": "splith",
-                "percent": 0.5,
-                "type": "con",
-                "nodes": [
                 {
                     "border": "pixel",
+                    "current_border_width": 2,
                     "floating": "auto_off",
-                    "layout": "splith",
+                    "geometry": {
+                       "height": 1018,
+                       "width": 836,
+                       "x": 2,
+                       "y": 2
+                    },
+                    "name": "Telegram",
                     "percent": 1,
-                    "type": "con",
-                    "nodes": [
-                    {
-                        "border": "pixel",
-                        "floating": "auto_off",
-                        "layout": "tabbed",
-                        "percent": 1,
-                        "type": "con",
-                        "nodes": [
-                        {
-                            "border": "pixel",
-                            "current_border_width": 2,
-                            "floating": "auto_off",
-                            "geometry": {
-                               "height": 509,
-                               "width": 836,
-                               "x": 840,
-                               "y": 513
-                               },
-                               "percent": 1,
-                               "swallows": [
-                               {
-                                "class": "^Hexchat$",
-                                "instance": "^hexchat$",
-                                "transient_for": "^$"
-                            }
-                            ],
-                            "type": "con"
-                        }
-                        ]
-                    }
-                    ]
+                    "swallows": [
+                       {
+                         "class": "^Telegram$"
+                       }
+                    ],
+                    "type": "con"
                 }
-                ]
+            ]
+        },
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "tabbed",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1020,
+                       "width": 1678,
+                       "x": 1,
+                       "y": 1
+                    },
+                    "name": "Franz",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                         "class": "^Franz$"
+                       }
+                    ],
+                    "type": "con"
                 },
                 {
                     "border": "pixel",
+                    "current_border_width": 2,
                     "floating": "auto_off",
-                    "layout": "tabbed",
-                    "percent": 0.5,
-                    "type": "con",
-                    "nodes": [
-                    {
-                        "border": "pixel",
-                        "current_border_width": 1,
-                        "floating": "auto_off",
-                        "geometry": {
-                           "height": 100,
-                           "width": 240,
-                           "x": 2640,
-                           "y": 542
-                           },
-                           "percent": 0.5,
-                           "swallows": [
-                           {
-                            "class": "^Skype$",
-                            "instance": "^skype$",
-                            "transient_for": "^$"
-                        }
-                        ],
-                        "type": "con"
-                        },
-                        {
-                            "border": "pixel",
-                            "current_border_width": 1,
-                            "floating": "auto_off",
-                            "geometry": {
-                               "height": 513,
-                               "width": 958,
-                               "x": 2641,
-                               "y": 542
-                               },
-                               "percent": 0.5,
-                               "swallows": [
-                               {
-                                "class": "^Skype$",
-                                "instance": "^skype$",
-                                "transient_for": "^$",
-                                "window_role": "^ConversationsWindow$"
-                            }
-                            ],
-                            "type": "con"
-                        }
-                        ]
-                    }
-                    ]
+                    "geometry": {
+                       "height": 100,
+                       "width": 240,
+                       "x": 840,
+                       "y": 22
+                    },
+                    "name": "Skype",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                         "class": "^Skype$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1018,
+                       "width": 1676,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "HexChat",
+                    "percent": 0.333333333333333,
+                    "swallows": [
+                       {
+                         "class": "^Hexchat$"
+                       }
+                    ],
+                    "type": "con"
                 }
-                ]
-            }
+            ]
+        }
+    ]
+}
