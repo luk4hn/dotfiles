@@ -7,9 +7,9 @@
 
 ### history
 shopt -s histappend
-HISTCONTROL=ignoreboth  # don't log duplicate lines or lines starting with space
-HISTSIZE=65535
-HISTFILESIZE=102400
+export HISTCONTROL=ignoreboth  # don't log duplicate lines or lines starting with space
+export HISTSIZE=65535
+export HISTFILESIZE=102400
 
 ### prompt
 _WHITE='\e[1;37m'
@@ -53,6 +53,8 @@ eval $(keychain --eval --agents ssh -Q --quiet)
 export EDITOR='vim'
 unset SSH_ASKPASS
 export VAGRANT_HOME='/data/VMs/vagrant-home'
+export GOPATH=~/work/go
+export PATH=$PATH:~/work/go/bin
 
 #colored man page
 man() {
@@ -77,7 +79,26 @@ workon() {
     tmux rename-window ${_s}
 }
 
-#alias
+wanip() {
+    dig +short myip.opendns.com @resolver1.opendns.com
+}
+
+## docker helper
+dc.bash() {
+    local _container=$1
+    docker exec -ti $_container /bin/bash
+}
+
+dc.init() {
+    local _name=$1
+    docker run -d -ti --name $_name --hostname $_name ubuntu:14.04 /bin/bash
+}
+
+dc.ps() {
+    docker ps -a
+}
+
+## alias
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias grep='grep --color=auto'
