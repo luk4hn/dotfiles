@@ -1,8 +1,8 @@
 URxvt*termName:             xterm-256color
 
 !URXVT FONTS
-URxvt*font:                 xft:Source Code Pro:pixelsize=20
-URxvt*boldFont:             xft:Source Code Pro:pixelsize=20
+URxvt*font:                 xft:SourceCodePro-Regular:pixelsize=20
+URxvt*boldFont:             xft:SourceCodePro-Regular:pixelsize=20
 !URxvt*font:                 xft:Ubuntu Mono derivative Powerline:pixelsize=22
 !URxvt*boldFont:             xft:Ubuntu Mono derivative Powerline:pixelsize=22
 URxvt*letterSpace:          0
