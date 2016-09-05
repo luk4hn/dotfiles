@@ -68,7 +68,7 @@ assign [class="^Franz$"] $WS10
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Source Code Pro Semibold 7
+font pango:Source Code Pro SemiBold 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -82,7 +82,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -i'
-bindsym $mod+q exec --no-startup-id rofi -show window
+# bindsym $mod+q exec --no-startup-id rofi -show window
 
 # change focus
 bindsym $mod+j focus left
@@ -218,6 +218,8 @@ bindsym Ctrl+Mod1+l exec i3lock -e -c 000000
 # Shortcut
 bindsym $mod+Return exec /usr/bin/urxvt -e tmux
 bindsym $mod+Shift+Return exec /usr/bin/urxvt
+# bindsym $mod+Return exec /usr/bin/terminator -x tmux
+# bindsym $mod+Shift+Return exec /usr/bin/terminator
 bindsym Ctrl+Shift+e exec pcmanfm
 # print screen
 bindsym --release Print exec --no-startup-id gnome-screenshot -f ~/screenshot-$(date +%s).png -a
@@ -243,12 +245,12 @@ bar {
 
 # autostart
 # exec --no-startup-id gnome-settings-daemon
-# exec --no-startup-id xcompmgr -n
 # exec --no-startup-id dunst #notification daemon
+exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
 
 exec --no-startup-id ( /usr/local/bin/extendScreen && i3-msg restart )
 
-exec --no-startup-id pulseaudio --start
+#exec --no-startup-id pulseaudio --start
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
@@ -258,15 +260,16 @@ exec --no-startup-id blueman-applet
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # workspace 1: term
-exec --no-startup-id sleep 3 && i3-msg 'workspace 1: term; exec /usr/bin/urxvt -e tmux new -s rMBP'
+exec --no-startup-id sleep 3 && i3-msg 'workspace 1: term; exec /usr/bin/urxvt -e tmux new -s 9470m'
+# exec --no-startup-id sleep 3 && i3-msg 'workspace 1: term; exec /usr/bin/terminator -x tmux new -s 9470m'
 
 # workspace 10: msg
-exec --no-startup-id sleep 3 && i3-msg 'workspace 10: msg; append_layout ~/.i3/workspace-msg.json'
+exec --no-startup-id sleep 3 && i3-msg 'workspace 10: msg; append_layout ~/.config/i3/workspace-msg.json'
 exec sleep 3 && ( telegram-desktop & franz & nitrogen --restore )
 
 # workspace 2: code
 exec subl3
 
 # workspace 3: www
-# exec firefox
+exec firefox
 # exec chromium
