@@ -49,7 +49,7 @@ _prompt_ps1
 
 ### env
 shopt -s autocd
-eval $(keychain --eval --agents ssh -Q --quiet)
+#eval $(keychain --eval --agents ssh -Q --quiet)
 export EDITOR='vim'
 unset SSH_ASKPASS
 export VAGRANT_HOME='/data/VMs/vagrant-home'

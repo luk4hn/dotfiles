@@ -42,7 +42,7 @@
     untracked = cyan
 
 [push]
-	default = matching
+	default = simple
 [diff]
 	tool = meld
 [merge]

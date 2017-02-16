@@ -8,5 +8,6 @@ for _file in .bashrc .zshrc .screenrc .tmux.conf .Xdefaults .gitconfig .Xresourc
 done
 
 for _file in i3 compton.conf ; do 
+    rm -rvf $HOME/.config/$_file
     ln -svf "$_project_path/$_file" "$HOME/.config/$_file"
 done

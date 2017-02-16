@@ -16,7 +16,7 @@ set $dom Mod1
 
 # General style
 workspace_layout tabbed
-new_window pixel 1
+new_window pixel 0
 #hide_edge_borders vertical
 focus_follows_mouse no
 workspace_auto_back_and_forth yes
@@ -50,19 +50,19 @@ assign [class="^Eclipse$"] $WS2
 assign [class="^NetBeans\ IDE\ 8.0.1$"] $WS2
 
 assign [class="^Firefox$"] $WS3
-assign [class="^chromium$"] $WS3
+assign [class="^Chromium$"] $WS3
 assign [class="^Thunderbird$"] $WS3
 
 assign [class="^Skype$"] $WS10
 assign [class="^Hexchat$"] $WS10
-assign [class="^telegram-desktop$"] $WS10
+assign [class="^TelegramDesktop$"] $WS10
 assign [class="^Franz$"] $WS10
 
 # workspace 9 is dedicated to floating window
 #assign [class="^Scudcloud$"] 9
-#assign [class="^KeePass2$"] 9
+assign [class="^KeePass2$"] 9
 #for_window [class="^Scudcloud$"] floating enable
-#for_window [class="^KeePass2$"] floating enable
+for_window [class="^KeePass2$"] floating enable
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -199,15 +199,15 @@ bindsym $mod+r mode "resize"
 #bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute && killall -USR1 i3status
 #bindsym XF86AudioMute exec amixer -q set Master toggle && killall -USR1 i3status
 # pulseaudio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight +5  # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -5  # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight +5
+bindsym XF86MonBrightnessDown exec xbacklight -5
 # Keyboard brightness controls
-bindsym XF86KbdBrightnessUp exec kbd_backlight up
-bindsym XF86KbdBrightnessDown exec kbd_backlight down
+#bindsym XF86KbdBrightnessUp exec kbd_backlight up
+#bindsym XF86KbdBrightnessDown exec kbd_backlight down
 
 # Mark windows
 bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
@@ -216,10 +216,10 @@ bindsym $mod+Shift+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 # Lock
 bindsym Ctrl+Mod1+l exec i3lock -e -c 000000
 # Shortcut
-bindsym $mod+Return exec /usr/bin/urxvt -e tmux
-bindsym $mod+Shift+Return exec /usr/bin/urxvt
-# bindsym $mod+Return exec /usr/bin/terminator -x tmux
-# bindsym $mod+Shift+Return exec /usr/bin/terminator
+#bindsym $mod+Return exec /usr/bin/urxvt -e tmux
+#bindsym $mod+Shift+Return exec /usr/bin/urxvt
+bindsym $mod+Return exec /usr/bin/terminator -x tmux
+bindsym $mod+Shift+Return exec /usr/bin/terminator
 bindsym Ctrl+Shift+e exec pcmanfm
 # print screen
 bindsym --release Print exec --no-startup-id gnome-screenshot -f ~/screenshot-$(date +%s).png -a
@@ -229,7 +229,7 @@ bindsym $mod+x [urgent=latest] focus
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #font pango:DejaVu Sans Mono 8
+    font pango:Ubuntu Mono Bold 9
     status_command i3status
     mode dock #dock|hide|invisible
     hidden_state hide #hide|show
@@ -245,27 +245,26 @@ bar {
 
 # autostart
 # exec --no-startup-id gnome-settings-daemon
-# exec --no-startup-id dunst #notification daemon
-exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
-
 exec --no-startup-id ( /usr/local/bin/extendScreen && i3-msg restart )
 
-#exec --no-startup-id pulseaudio --start
+exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
+exec --no-startup-id dunst -conf ~/.config/i3/dunstrc
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id volumeicon
+exec --no-startup-id cbatticon -i symbolic
 exec --no-startup-id nm-applet
 exec --no-startup-id dropboxd
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 # exec --no-startup-id redshift-gtk
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # workspace 1: term
-exec --no-startup-id sleep 3 && i3-msg 'workspace 1: term; exec /usr/bin/urxvt -e tmux new -s 9470m'
-# exec --no-startup-id sleep 3 && i3-msg 'workspace 1: term; exec /usr/bin/terminator -x tmux new -s 9470m'
+#exec --no-startup-id sleep 3 && i3-msg 'workspace 1: term; exec /usr/bin/urxvt -e tmux new -s e7240'
+exec --no-startup-id sleep 2 && i3-msg 'workspace 1: term; exec /usr/bin/terminator -x tmux new -s e7240'
 
 # workspace 10: msg
-exec --no-startup-id sleep 3 && i3-msg 'workspace 10: msg; append_layout ~/.config/i3/workspace-msg.json'
-exec sleep 3 && ( telegram-desktop & franz & nitrogen --restore )
+exec --no-startup-id sleep 2 && i3-msg 'workspace 10: msg; append_layout ~/.config/i3/workspace-msg.json'
+exec sleep 2 && ( telegram-desktop & franz-bin & nitrogen --restore )
 
 # workspace 2: code
 exec subl3
